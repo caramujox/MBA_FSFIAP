@@ -1,11 +1,16 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import Button from "./Button";
+import Count from "./Count";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div>hello worlds</div>;
+  return (
+    <>
+      {/* <Button text="Enviar E-mail">
+        <p>Enviar por E-mail</p>
+      </Button>
+      <Button text="Cancelar" /> */}
+      <Count />
+    </>
+  );
 }
 
 export default App;
