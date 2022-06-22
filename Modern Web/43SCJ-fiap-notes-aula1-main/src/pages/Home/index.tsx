@@ -6,19 +6,36 @@ import Modal from "../../components/Modal";
 import { NotesService } from "../../services/notes/note-service";
 import { Note } from "../../services/notes/types";
 import { Container } from "./styles";
+import { api } from "../../services/api";
 
 function Home() {
-  /// !implementar listagem
+  const [notes, setNotes] = useState<Note[]>([]);
+  const [showModal, setShowModal] = useState<Modal>();
 
-  const notes = [{ text: "Nota de Exemplo", date: new Date() }] as Note[];
+  useEffect(() => {
+    (async () => {
+     const response = await api.get("/notes");
+
+     setNotes(response.data);
+    })();
+  }, []);
+
+  const handleUpdateNewNotes = (note: Note) => {
+    setNotes([...notes, note]);
+    setShowModal(false);
+  }
 
   return (
     <>
-      {/* !!! implementar modal */}
+      {showModal && (<Modal title="Nova nota" handleClose={() => setShowModal(false)}>
+        <FormNote
+        handleUpdateNotes={(handleUpdateNewNotes)}/>
+      </Modal>)}
       <Container>
-        <CardNote note={notes[0]}></CardNote>
-
-        <FabButton handleClick={() => {}}>+</FabButton>
+        {notes.map((note) => (
+          <CardNote key ={note.id} note={note}></CardNote>
+        ))}
+        <FabButton handleClick={() => setShowModal(true)}>+</FabButton>
       </Container>
     </>
   );
