@@ -1,18 +1,24 @@
-# Trabalho Final - 43SCJ
+# Projeto Final Integration and DevTools
 
-<img src="img\macro_trabalho_final.png" alt="exemplo imagem">
+<img src="img\macro_trabalho_final.png" alt="Desenho macro de solução para o Trabalho">
 
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
+> O objetivo deste projeto é desenvolver uma solução para o agronegócio que a coleta de dados via sensores de temperatura e umidade. Esses sensores ficarão instalados em um drone com uma altíssima economia pois conta com pequenos, porém muito eficientes painéis fotovoltaicos.
 
-### Ajustes e melhorias
+### Objetivos, Regras e Requisitos
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+O projeto contem as seguintes regras de avaliação
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+- [x] Desenvolver uma aplicação web na qual podemos informar manualmente as informações:
+  - id_drone (Identificador do Drone)
+  - Latitude e longitude (Precisamos de uma latitude e longitude validas.);
+  - Temperatura (-25º até 40º);
+  - Umidade (0% - 100%);
+  - Ativar rastreamento (ligada-desligada)
+- [ ] A cada 10 segundos é feito uma leitura dos dados (temperatura e umidade) e os dados enviados para um serviço de mensagens.
+- [ ] O microsserviço deve enviar um alerta (pode ser um email) quando, dentro do espaço de 1 minuto:
+  - Temperatura (>= 35 ou <=0) ou
+  - (Umidade <= 15%).
+- [ ] Use RabbitMQ ou Apache Kafka
 
 ## 💻 Pré-requisitos
 
@@ -20,89 +26,46 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
 
-- Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-- Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-- Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+- Você instalou a versão mais recente de `Docker, Docker-compose, Docker Desktop, etc...`
 
-## 🚀 Instalando <nome_do_projeto>
+- Você tenha instalada a `JDK 17 juntamente com sua IDE favorita para Java`.
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+- Você tenha instalado alguma plataforma de API para desenvolvedores, como o `Postman API ou Insomnia REST`.
 
-Linux e macOS:
+- Caso deseje também, pode utilizar o `MySQL Workbench` para visualizar melhor o banco de dados e seus schemas.
 
-```
-<comando_de_instalação>
-```
+## 🚀 Executando o projeto
 
-Windows:
+Para executar o projeto, siga estas etapas:
+
+Acesse o diretorio TrabalhoFinal via terminal e execute o comando:
 
 ```
-<comando_de_instalação>
+docker-compose up -d
 ```
 
-## ☕ Usando <nome_do_projeto>
-
-Para usar <nome_do_projeto>, siga estas etapas:
+Em seguida execute as três aplicações inclusas no repositório (`43scjAdmCentralApp, 43scjDroneApp, 43scjNotifyApp`). Lembre-se de sempre fazer o Reload das suas dependências Maven e quando julgar necessário, limpar e refazer o build da aplicação com o comando
 
 ```
-<exemplo_de_uso>
+mvn clean install
 ```
 
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
+:heavy_exclamation_mark::heavy_exclamation_mark::heavy_exclamation_mark: <b>ATENÇÃO:</b> Verifique sempre os logs da aplicação na sua IDE para análisar os resultados. Preste atenção as configurações de porta no `application.properties` de cada aplicação e faça as alterações que achar necessárias para execução.
 
-## 📫 Contribuindo para <nome_do_projeto>
+## ☕ Usando e testando o projeto
 
-<!---Se o seu README for longo ou se você tiver algum processo ou etapas específicas que deseja que os contribuidores sigam, considere a criação de um arquivo CONTRIBUTING.md separado--->
+Para testar o projeto basta abrir a sua plataforma de API (Postman ou Insomnia, por exemplo) e realizar uma requisição HTTP com metodo `POST` qualquer com o seguinte formato :
 
-Para contribuir com <nome_do_projeto>, siga estas etapas:
+```
+{
+	"id_drone":"3",
+	"latitude":"2330.0",
+	"longitude":"1230.3",
+	"umidade":"0.352",
+	"rastreamento_ativo": true
+}
+```
 
-1. Bifurque este repositório.
-2. Crie um branch: `git checkout -b <nome_branch>`.
-3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
-4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
-5. Crie a solicitação de pull.
+Para validar se o projeto atende as regras, é só alterar os valores da requisição e executa-la novamente.
 
-Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-
-## 🤝 Colaboradores
-
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="#">
-        <img src="https://avatars3.githubusercontent.com/u/31936044" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
-        <sub>
-          <b>Iuri Silva</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
-        <sub>
-          <b>Mark Zuckerberg</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
-## 😄 Seja um dos contribuidores<br>
-
-Quer fazer parte desse projeto? Clique [AQUI](CONTRIBUTING.md) e leia como contribuir.
-
-## 📝 Licença
-
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
-
-[⬆ Voltar ao topo](#nome-do-projeto)<br>
+[⬆ Voltar ao topo](#projeto-final-integration-and-devtools)<br>
