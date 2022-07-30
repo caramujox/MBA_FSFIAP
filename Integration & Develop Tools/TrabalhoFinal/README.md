@@ -4,7 +4,7 @@
 
 > O objetivo deste projeto é desenvolver uma solução para o agronegócio que realiza a coleta de dados via sensores de temperatura e umidade. Esses sensores ficarão instalados em um drone com uma altíssima economia pois conta com pequenos, porém muito eficientes painéis fotovoltaicos.
 
-### Objetivos, Regras e Requisitos
+### :white_check_mark: Objetivos, Regras e Requisitos
 
 O projeto contem as seguintes regras de avaliação
 
@@ -27,7 +27,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você instalou a versão mais recente de `Docker, Docker-compose, Docker Desktop, etc...`
 
-- Você tenha instalada a `JDK 17 juntamente com sua IDE favorita para Java`.
+- Você tenha instalado a `JDK 17 juntamente com sua IDE favorita para Java`.
 
 - Você tenha instalado alguma plataforma de API para desenvolvedores, como o `Postman API ou Insomnia REST`.
 
@@ -43,7 +43,7 @@ Acesse o diretorio TrabalhoFinal via terminal e execute o comando:
 docker-compose up -d
 ```
 
-Em seguida execute as três aplicações inclusas no repositório (`43scjAdmCentralApp, 43scjDroneApp, 43scjNotifyApp`). Lembre-se de sempre fazer o Reload das suas dependências Maven e quando julgar necessário, limpar e refazer o build da aplicação com o comando
+Em seguida execute as três aplicações inclusas no repositório (`43scjAdmCentralApp, 43scjDroneApp, 43scjNotifyApp`). Lembre-se de sempre fazer o Reload das suas dependências Maven e, quando julgar necessário, limpar e refazer o build da aplicação com o comando
 
 ```
 mvn clean install
