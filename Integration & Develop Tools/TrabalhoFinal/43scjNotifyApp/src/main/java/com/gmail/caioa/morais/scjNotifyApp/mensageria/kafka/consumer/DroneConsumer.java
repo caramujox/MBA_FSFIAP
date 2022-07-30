@@ -24,6 +24,7 @@ public class DroneConsumer {
             log.info("###Tópico : {}", topicName);
             log.info("### Drone ID: {}", drone.getIdDrone());
             log.info("### Lat/Lon : {}/{}", drone.getLatitude(), drone.getLongitude());
+            log.info("### Temperatura : {}", drone.getTemperatura());
             log.info("### % de umidade: {}", drone.getUmidade());
             log.info("### Rastreamento Ativo?: {}", drone.isRastreamentoAtivo());
             log.info("###############");

@@ -19,6 +19,7 @@ public class Drone implements Serializable{
     private String idDrone;
     private double latitude;
     private double longitude;
+    private double temperatura;
     private double umidade;
     private boolean isRastreamentoAtivo;
 
@@ -26,6 +27,7 @@ public class Drone implements Serializable{
         this.idDrone = droneDTO.getIdDrone();
         this.latitude = Double.parseDouble(droneDTO.getLatitude());
         this.longitude = Double.parseDouble(droneDTO.getLongitude());
+        this.temperatura = Double.parseDouble(droneDTO.getTemperatura());
         this.umidade = Double.parseDouble(droneDTO.getUmidade());
         this.isRastreamentoAtivo = droneDTO.isRastreamentoAtivo();
     }

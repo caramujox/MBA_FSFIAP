@@ -14,6 +14,9 @@ public class DroneDTO {
     @JsonProperty("longitude")
     private String longitude;
 
+    @JsonProperty("temperatura")
+    private String temperatura;
+
     @JsonProperty("umidade")
     private String umidade;
 
