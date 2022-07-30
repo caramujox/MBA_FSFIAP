@@ -19,12 +19,11 @@ O projeto contem as seguintes regras de avaliação
   - Temperatura (>= 35 ou <=0) ou
   - (Umidade <= 15%).
 - [ ] Use RabbitMQ ou Apache Kafka
+- [x] • Readme.md com detalhes do projeto, de como subir, configurar, printscreen com o funcionamento da aplicação, ou um vídeo.
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
-
-<!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
 
 - Você instalou a versão mais recente de `Docker, Docker-compose, Docker Desktop, etc...`
 
@@ -66,6 +65,16 @@ Para testar o projeto basta abrir a sua plataforma de API (Postman ou Insomnia, 
 }
 ```
 
-Para validar se o projeto atende as regras, é só alterar os valores da requisição e executa-la novamente.
+Para validar se o projeto atende as regras, é só alterar os valores da requisição, executa-la novamente e avaliar os logs da aplicação.
+
+## 😄 Fique a vontade para avaliar e contribuir!<br>
+
+Todo feedback é bem-vindo e o processo de melhoria é continuo!
+
+<p align="center"><a href="#" alt="Linkedin">
+<img src="https://img.shields.io/badge/-Linkedin-0e76a8?style=flat-square&logo=Linkedin&logoColor=white&link=LINK-DO-SEU-LINKEDIN" /></a>
+<a href="#" alt="Linkedin">
+<img src="https://img.shields.io/twitter/follow/camirujo?style=social" /></a>
+</p>
 
 [⬆ Voltar ao topo](#projeto-final-integration-and-devtools)<br>
