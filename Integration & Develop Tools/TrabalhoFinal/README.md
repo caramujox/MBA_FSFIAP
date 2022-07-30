@@ -2,7 +2,7 @@
 
 <img src="img\macro_trabalho_final.png" alt="Desenho macro de solução para o Trabalho">
 
-> O objetivo deste projeto é desenvolver uma solução para o agronegócio que a coleta de dados via sensores de temperatura e umidade. Esses sensores ficarão instalados em um drone com uma altíssima economia pois conta com pequenos, porém muito eficientes painéis fotovoltaicos.
+> O objetivo deste projeto é desenvolver uma solução para o agronegócio que realiza a coleta de dados via sensores de temperatura e umidade. Esses sensores ficarão instalados em um drone com uma altíssima economia pois conta com pequenos, porém muito eficientes painéis fotovoltaicos.
 
 ### Objetivos, Regras e Requisitos
 
