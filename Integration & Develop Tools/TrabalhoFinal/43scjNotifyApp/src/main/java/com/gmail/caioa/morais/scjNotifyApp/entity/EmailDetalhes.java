@@ -1,4 +1,4 @@
-package com.gmail.caioa.morais.scjNotifyApp.service;
+package com.gmail.caioa.morais.scjNotifyApp.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

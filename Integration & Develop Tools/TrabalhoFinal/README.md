@@ -15,10 +15,10 @@ O projeto contem as seguintes regras de avaliação
   - Umidade (0% - 100%);
   - Ativar rastreamento (ligada-desligada)
 - [ ] A cada 10 segundos é feito uma leitura dos dados (temperatura e umidade) e os dados enviados para um serviço de mensagens.
-- [ ] O microsserviço deve enviar um alerta (pode ser um email) quando, dentro do espaço de 1 minuto:
+- [x] O microsserviço deve enviar um alerta (pode ser um email) quando, dentro do espaço de 1 minuto:
   - Temperatura (>= 35 ou <=0) ou
   - (Umidade <= 15%).
-- [ ] Use RabbitMQ ou Apache Kafka
+- [x] Use RabbitMQ ou Apache Kafka
 - [x] • Readme.md com detalhes do projeto, de como subir, configurar, printscreen com o funcionamento da aplicação, ou um vídeo.
 
 ## 💻 Pré-requisitos
