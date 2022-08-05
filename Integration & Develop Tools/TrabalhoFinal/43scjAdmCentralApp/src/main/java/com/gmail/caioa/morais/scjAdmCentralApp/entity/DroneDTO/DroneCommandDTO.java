@@ -1,10 +1,15 @@
-package com.gmail.caioa.morais.scjDroneApp.controller.dto;
+package com.gmail.caioa.morais.scjAdmCentralApp.entity.DroneDTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-public class DroneDTO {
+@Setter
+@Builder
+public class DroneCommandDTO {
 
     @JsonProperty("latitude")
     private String latitude;

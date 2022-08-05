@@ -28,4 +28,5 @@ public class DroneProducer {
 
         kafkaTemplate.send(topicName, drone);
     }
+
 }
