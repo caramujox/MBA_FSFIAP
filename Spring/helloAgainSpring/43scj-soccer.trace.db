@@ -1,0 +1,3 @@
+2022-08-16 23:07:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_TEAM" not found (this database is empty); SQL statement:
+insert into tb_team (id, foundation_date, members, name) values (default, ?, ?, ?) [42104-214]

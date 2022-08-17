@@ -1,9 +1,13 @@
 package com.gmail.caioa.morais.helloAgainSpring.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gmail.caioa.morais.helloAgainSpring.dto.CreateUpdateTeamDTO;
 import com.gmail.caioa.morais.helloAgainSpring.dto.TeamDTO;
 import com.gmail.caioa.morais.helloAgainSpring.dto.UpdateTeamMembersDTO;
+import com.gmail.caioa.morais.helloAgainSpring.entity.TeamEntity;
+import com.gmail.caioa.morais.helloAgainSpring.repository.TeamRepository;
 import com.gmail.caioa.morais.helloAgainSpring.service.interfaces.TeamService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,47 +17,59 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class TeamServiceImpl implements TeamService {
 
+    private TeamRepository teamRepository;
+    private ObjectMapper objectMapper;
     List<TeamDTO> list = new ArrayList<>();
     public TeamDTO create(CreateUpdateTeamDTO createUpdateTeamDTO) {
-        TeamDTO dto = TeamDTO.builder().id(list.size()+1L)
-                .name(createUpdateTeamDTO.getName())
-                .supporters(createUpdateTeamDTO.getMembers())
-                .foundationDate(createUpdateTeamDTO.getFoundationDate()).build();
-               list.add(dto);
-               return dto;
+        TeamEntity teamEntity = new TeamEntity(createUpdateTeamDTO);
+        TeamEntity savedTeamEntity = teamRepository.save(teamEntity);
+        return new TeamDTO(savedTeamEntity);
     }
 
     public TeamDTO findById(Long id) {
-                return list.stream()
-                .filter(teamDTO -> teamDTO.getId().equals(id))
-                .findFirst()
+        TeamEntity teamEntity = teamRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                return objectMapper.convertValue(teamEntity, TeamDTO.class) ;
     }
 
     public List<TeamDTO> listAll(String name) {
-        return list.stream()
-                .filter(teamDTO -> name == null || teamDTO.getName().contains(name)).collect(Collectors.toList());
+        List<TeamEntity> list;
+        if(name == null) {
+            list = teamRepository.findAll();
+        }
+        else {
+            list = teamRepository.findAllByNameContaining(name);
+        }
+        return list.stream().map(TeamDTO::new).toList();
     }
 
     public TeamDTO updateTeamDTO(Long id, CreateUpdateTeamDTO createUpdateTeamDTO) {
-        TeamDTO teamDTO = findById(id);
-        teamDTO.setName(createUpdateTeamDTO.getName());
-        teamDTO.setFoundationDate(createUpdateTeamDTO.getFoundationDate());
-        teamDTO.setSupporters(createUpdateTeamDTO.getMembers());
-        return teamDTO;
+        TeamEntity entity = teamRepository.findById(id)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        entity.setName(createUpdateTeamDTO.getName());
+        entity.setFoundationDate(createUpdateTeamDTO.getFoundationDate());
+        entity.setMembers(createUpdateTeamDTO.getMembers());
+
+        TeamEntity savedEntity = teamRepository.save(entity);
+        return new TeamDTO(savedEntity);
     }
 
     public TeamDTO updateMembers(Long id, UpdateTeamMembersDTO updateTeamMembersDTO) {
+        TeamEntity entity = teamRepository.findById(id)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        TeamDTO teamDTO = findById(id);
-        teamDTO.setSupporters(updateTeamMembersDTO.getMembers());
-        return teamDTO;
+        entity.setMembers(updateTeamMembersDTO.getMembers());
+        TeamEntity savedEntity = teamRepository.save(entity);
+        return new TeamDTO(savedEntity);
     }
 
     public void delete(long id) {
-        TeamDTO teamDTO = findById(id);
-        list.remove(teamDTO);
+        TeamEntity entity = teamRepository.findById(id)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        teamRepository.delete(entity);
     }
 }
