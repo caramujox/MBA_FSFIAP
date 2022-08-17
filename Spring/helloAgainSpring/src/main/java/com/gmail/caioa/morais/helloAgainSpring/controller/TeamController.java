@@ -4,86 +4,56 @@ import com.gmail.caioa.morais.helloAgainSpring.dto.CreateUpdateTeamDTO;
 import com.gmail.caioa.morais.helloAgainSpring.dto.TeamDTO;
 import com.gmail.caioa.morais.helloAgainSpring.dto.TeamFilterDTO;
 import com.gmail.caioa.morais.helloAgainSpring.dto.UpdateTeamMembersDTO;
+import com.gmail.caioa.morais.helloAgainSpring.service.TeamServiceImpl;
+import com.gmail.caioa.morais.helloAgainSpring.service.interfaces.TeamService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping("/")
 public class TeamController {
-   private List<TeamDTO> list = new ArrayList<>();
 
-   public TeamController(){
-       list.add(TeamDTO.builder().id(1L).
-               foundationDate(LocalDate.of(1910, 01, 01))
-               .name("Corinthians")
-               .supporters(10000)
-               .build());
+    private TeamService teamService;
 
-       list.add(TeamDTO.builder().id(2L)
-               .foundationDate(LocalDate.of(1910, 01, 01))
-               .name("Flamengo")
-               .supporters(200000)
-               .build()
-       );
+   public TeamController(TeamServiceImpl teamService){
+       this.teamService = teamService;
    }
+
     @GetMapping
     public List<TeamDTO> list (TeamFilterDTO teamFilterDTO) {
 
-        return list.stream().filter(teamDTO -> teamFilterDTO.getName() == null || teamDTO.getName().contains(teamFilterDTO.getName())).toList();
+       return teamService.listAll(teamFilterDTO.getName());
     }
 
     @GetMapping("{id}")
     public TeamDTO findById(@PathVariable Long id){
-        return list.stream()
-                .filter(teamDTO -> teamDTO.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+       return teamService.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public TeamDTO create(@RequestBody CreateUpdateTeamDTO createUpdateTeamDTO) {
-       TeamDTO dto = TeamDTO.builder().id(list.size()+1L)
-                .name(createUpdateTeamDTO.getName())
-                .supporters(createUpdateTeamDTO.getMembers())
-                .foundationDate(createUpdateTeamDTO.getFoundationDate()).build();
-
-       list.add(dto);
-       return dto;
+       return teamService.create(createUpdateTeamDTO);
     }
 
     @PutMapping("{id}")
     public TeamDTO update(@PathVariable Long id,
                           @RequestBody CreateUpdateTeamDTO createUpdateTeamDTO){
-
-       TeamDTO teamDTO = findById(id);
-       teamDTO.setName(createUpdateTeamDTO.getName());
-       teamDTO.setFoundationDate(createUpdateTeamDTO.getFoundationDate());
-       teamDTO.setSupporters(createUpdateTeamDTO.getMembers());
-
-       return teamDTO;
+       return teamService.updateTeamDTO(id, createUpdateTeamDTO);
     }
 
     @PatchMapping("{id}")
     public TeamDTO updateMembers(@PathVariable Long id,
                                  @RequestBody UpdateTeamMembersDTO updateTeamMembersDTO){
 
-       TeamDTO teamDTO = findById(id);
-       teamDTO.setSupporters(updateTeamMembersDTO.getMembers());
-       return teamDTO;
+       return teamService.updateMembers(id, updateTeamMembersDTO);
    }
 
    @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
-       TeamDTO teamDTO = findById(id);
+       teamService.delete(id);
 
-       list.remove(teamDTO);
    }
 }

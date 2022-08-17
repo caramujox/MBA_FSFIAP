@@ -1,5 +1,6 @@
-# ☕ Java Platform
->Diretório reservado para o Modulo de Modern WEB 
+# :leaves: Spring
+
+>Repositório para projetos de classe das disciplinas do MBA Full Stack Development - FIAP 2022 - 43SCJ
 
 ### 💻 Disciplinas
 O projeto contem as seguintes regras de avaliação
@@ -12,7 +13,7 @@ O projeto contem as seguintes regras de avaliação
 - [x] Persistence
 - [ ] Spring
 - [ ] Big Data Development
-## 🚀 
+## 🚀 ☕
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
