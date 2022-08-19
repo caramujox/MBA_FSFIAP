@@ -19,7 +19,7 @@ O projeto contem as seguintes regras de avaliação:
 Com base nestes requisitos de projeto:
 
 - [x] Escrever o modelo do banco de dados (o famoso MER).
-- [ ] Definir as entidades necessárias.
+- [x] Definir as entidades necessárias.
 - [ ] Desenvolver uma aplicação, do tipo Java Project, onde todas as informações são fornecidas pelo usuário.
 - [ ] Utilizar o Maven ou Gradle para o gerenciamento de dependências.
 - [ ] O sistema deve ser desenvolvido utilizando uma das cinco combinações de técnicas:
