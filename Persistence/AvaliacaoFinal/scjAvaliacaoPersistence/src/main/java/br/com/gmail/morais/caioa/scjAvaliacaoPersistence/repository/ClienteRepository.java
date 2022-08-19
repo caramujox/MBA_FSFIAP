@@ -1,6 +1,10 @@
 package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.repository;
 
+import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity.ClienteEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClienteRepository extends JpaRepository<ClienteRepository, Long> {
+import java.util.List;
+
+public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
+    List<ClienteEntity> findAllByNameContaining(String name);
 }
