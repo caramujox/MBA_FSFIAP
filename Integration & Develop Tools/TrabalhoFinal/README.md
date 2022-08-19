@@ -37,7 +37,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 Para executar o projeto, siga estas etapas:
 
-Acesse o diretorio TrabalhoFinal via terminal e execute o comando:
+Acesse o diretorio AvaliacaoFInal via terminal e execute o comando:
 
 ```
 docker-compose up -d

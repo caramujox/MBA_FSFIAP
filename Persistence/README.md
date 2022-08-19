@@ -1,19 +1,16 @@
 # :busts_in_silhouette: Persistence
 
->Projetos de classe da disciplina de Persistencia
+> Projetos de classe da disciplina de Persistencia
 
-### 💻 Disciplinas
+### 💻 Tecnologias aboradas
+
 O projeto contem as seguintes regras de avaliação
 
-- [x] Design Thinking
-- [x] UX Design
-- [x] StartUp One
-- [x] Java Platform
-- [x] Modern Web
-- [x] Persistence
-- [ ] Spring
-- [ ] Big Data Development
-## 🚀 ☕
+- [x] Spring Data e JPA
+- [x] Caching com Redis
+- [x] MongoDB
+- [x] Neo4j
+- [x] Cassandra
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
@@ -25,4 +22,4 @@ Todo feedback é bem-vindo e o processo de melhoria é continuo!
 <img src="https://img.shields.io/twitter/follow/camirujo?style=social" /></a>
 </p>
 
-[⬆ Voltar ao topo](#projeto-final-integration-and-devtools)<br>
+[⬆ Voltar ao topo](#persistence)<br>
