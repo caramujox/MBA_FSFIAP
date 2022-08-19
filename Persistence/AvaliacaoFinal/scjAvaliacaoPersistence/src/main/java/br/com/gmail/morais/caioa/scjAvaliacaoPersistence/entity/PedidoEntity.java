@@ -3,6 +3,7 @@ package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,22 @@ public class PedidoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPedido;
 
-    @ManyToMany(mappedBy = "pedido")
+    private Double valorPedido;
+    private LocalDate dataPedido;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private ClienteEntity cliente;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "produto_pedido",
+            joinColumns = {
+                    @JoinColumn(name = "id_pedido")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "id_produto")
+            }
+    )
     private List<ProdutoEntity> produtos;
 }

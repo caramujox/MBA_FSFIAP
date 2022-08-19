@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_PRODUTOS")
@@ -17,4 +18,7 @@ public class ProdutoEntity {
     private String nome;
     private Long quantidade;
     private Double valor;
+
+    @ManyToMany(mappedBy = "produtos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<PedidoEntity> pedidos;
 }
