@@ -1,6 +1,8 @@
 # Persistencia em Java Avaliação da Disciplina
 
-<img src="img\MER_trabalho_final.png" alt="Desenho do modelo entidade-relacionamento de solução para o Trabalho">
+<p align="center">
+<img style="center" src="img\MER_trabalho_final.png" alt="Desenho do modelo entidade-relacionamento de solução para o Trabalho">
+</p>
 
 > Trata-se de um sistema de cadastro de produtos e pedidos em um portal de e-commerce. Considere os requisitos:
 
