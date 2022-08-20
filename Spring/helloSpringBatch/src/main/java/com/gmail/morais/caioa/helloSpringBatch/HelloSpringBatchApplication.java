@@ -3,6 +3,7 @@ package com.gmail.morais.caioa.helloSpringBatch;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.step.tasklet.Tasklet;
@@ -17,6 +18,7 @@ import java.nio.file.Paths;
 
 @Slf4j
 @SpringBootApplication
+@EnableBatchProcessing
 public class HelloSpringBatchApplication {
 
 	public static void main(String[] args) {
