@@ -10,6 +10,9 @@ import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.service.interfaces.Pedi
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.service.interfaces.ProdutoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -27,7 +30,9 @@ public class PedidoServiceImpl implements PedidoService {
     private ClienteService clienteService;
     private ProdutoService produtoService;
     private ObjectMapper objectMapper;
+
     @Override
+    @CacheEvict(cacheNames = "pedido", allEntries = true)
     public PedidoDTO create(CreateUpdatePedidoDTO createUpdatePedidoDTO) {
         ClienteEntity cliente = mapClienteDTO(clienteService.findById(createUpdatePedidoDTO.getIdCliente()));
         List<ProdutoEntity> produtos = createUpdatePedidoDTO.getProdutos().stream().map(
@@ -45,6 +50,7 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
+    @Cacheable(cacheNames = "pedido", key = "#id", unless = "#result == null")
     public PedidoDTO findById(Long id) {
         PedidoEntity entity = pedidoRepository.findById(id).orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -52,6 +58,7 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
+    @Cacheable(cacheNames = "pedido")
     public List<PedidoDTO> listAll(Long idCliente) {
         List<PedidoEntity> list;
         if(idCliente == null)
@@ -62,6 +69,7 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
+    @CacheEvict(cacheNames = "pedido", allEntries = true)
     public PedidoDTO updatePedidoDTO(Long id, CreateUpdatePedidoDTO createUpdatePedidoDTO) {
         PedidoEntity entity = pedidoRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND)
@@ -72,6 +80,8 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
+    @Caching(evict = { @CacheEvict(cacheNames = "pedido", key = "#id"),
+            @CacheEvict(cacheNames = "pedido", allEntries = true) })
     public void delete(Long id) {
         PedidoEntity entity = pedidoRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND)
