@@ -3,6 +3,7 @@ package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.dto;
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity.ClienteEntity;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteDTO {
+public class ClienteDTO implements Serializable {
     private Long idCliente;
     private String nome;
     private LocalDate dataNascimento;

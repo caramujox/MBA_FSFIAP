@@ -1,3 +1,4 @@
+### MySQL
 version: '2'
 services:
   
@@ -18,5 +19,20 @@ services:
       - '3306'
     volumes:
       - ./my-db:/var/lib/mysql
+      
+### Redis
+  redis:
+    container_name: redis
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+
+
 volumes:
   my-db:
+  cache:
+

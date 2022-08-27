@@ -1,11 +1,13 @@
 package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -14,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-public class ProdutoEntity {
+public class ProdutoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduto;
@@ -23,6 +25,7 @@ public class ProdutoEntity {
     private Long quantidade;
     private Double valor;
 
-    @ManyToMany(mappedBy = "produtos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "produtos", fetch = FetchType.LAZY)
     private List<PedidoEntity> pedidos;
 }
