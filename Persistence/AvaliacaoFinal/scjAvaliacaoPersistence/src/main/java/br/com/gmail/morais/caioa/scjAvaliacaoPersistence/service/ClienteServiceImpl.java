@@ -26,7 +26,8 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     public ClienteDTO findById(Long id) {
-        ClienteEntity entity = clienteRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        ClienteEntity entity = clienteRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return objectMapper.convertValue(entity, ClienteDTO.class);
     }
 
@@ -35,7 +36,7 @@ public class ClienteServiceImpl implements ClienteService {
         if(name == null)
             list = clienteRepository.findAll();
         else
-            list = clienteRepository.findAllByNameContaining(name);
+            list = clienteRepository.findAllByNomeContaining(name);
         return list.stream().map(ClienteDTO::new).toList();
     }
 

@@ -1,15 +1,15 @@
 package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.dto;
 
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity.ClienteEntity;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ClienteDTO {
     private Long id;
     private String nome;

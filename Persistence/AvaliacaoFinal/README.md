@@ -20,10 +20,10 @@ Com base nestes requisitos de projeto:
 
 - [x] Escrever o modelo do banco de dados (o famoso MER).
 - [x] Definir as entidades necessárias.
-- [ ] Desenvolver uma aplicação, do tipo Java Project, onde todas as informações são fornecidas pelo usuário.
-- [ ] Utilizar o Maven ou Gradle para o gerenciamento de dependências.
-- [ ] O sistema deve ser desenvolvido utilizando uma das cinco combinações de técnicas:
-  - Spring Data JPA + Cache Redis (os dois em um único projeto).
+- [x] Desenvolver uma aplicação, do tipo Java Project, onde todas as informações são fornecidas pelo usuário.
+- [x] Utilizar o Maven ou Gradle para o gerenciamento de dependências.
+- [x] O sistema deve ser desenvolvido utilizando uma das cinco combinações de técnicas:
+  - :white_check_mark: Spring Data JPA + Cache Redis (os dois em um único projeto).
   - Spring Data JPA (em um projeto separado) e Neo4J (em outro projeto separado).
   - Spring Data JPA (em um projeto separado) e MongoDB (em outro projeto separado, sendo que neste projeto considere que pode existir um ou mais endereços de entrega cadastrados).
   - Cassandra (em outro projeto separado, lembrando que o Cassandra não suporta relacionamentos, então a lógica associada a isso deverá ser implementada pela aplicação).

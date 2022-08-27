@@ -1,6 +1,10 @@
 package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity;
 
+import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.dto.CreateUpdatePedidoDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,6 +13,9 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "TB_PEDIDOS")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PedidoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,4 +39,8 @@ public class PedidoEntity {
             }
     )
     private List<ProdutoEntity> produtos;
+
+    public PedidoEntity(CreateUpdatePedidoDTO createUpdatePedidoDTO){
+
+    }
 }

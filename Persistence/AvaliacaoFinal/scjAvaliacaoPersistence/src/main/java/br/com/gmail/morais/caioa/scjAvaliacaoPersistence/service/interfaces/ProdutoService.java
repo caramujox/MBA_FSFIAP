@@ -9,8 +9,8 @@ public interface ProdutoService {
     ProdutoDTO create(CreateUpdateProdutoDTO createUpdateProdutoDTO);
 
     ProdutoDTO findById(Long id);
-    List<ProdutoDTO> listAll(String name);
-    ProdutoDTO updateClienteDTO(Long id, CreateUpdateProdutoDTO createUpdateProdutoDTO);
+    List<ProdutoDTO> listAll(String nome);
+    ProdutoDTO updateProdutoDTO(Long id, CreateUpdateProdutoDTO createUpdateProdutoDTO);
     void delete (Long id);
 }
 

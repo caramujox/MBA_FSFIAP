@@ -8,10 +8,10 @@ import java.util.List;
 
 public interface PedidoService {
 
-    PedidoDTO create(CreateUpdatePedidoDTO createUpdateClienteDTO);
+    PedidoDTO create(CreateUpdatePedidoDTO createUpdatePedidoDTO);
 
     PedidoDTO findById(Long id);
-    List<PedidoDTO> listAll(String name);
-    PedidoDTO updateClienteDTO(Long id, CreateUpdatePedidoDTO createUpdateClienteDTO);
+    List<PedidoDTO> listAll(Long idCliente);
+    PedidoDTO updatePedidoDTO(Long id, CreateUpdatePedidoDTO createUpdatePedidoDTO);
     void delete (Long id);
 }
