@@ -27,7 +27,7 @@ Com base nestes requisitos de projeto:
   - Spring Data JPA (em um projeto separado) e Neo4J (em outro projeto separado).
   - Spring Data JPA (em um projeto separado) e MongoDB (em outro projeto separado, sendo que neste projeto considere que pode existir um ou mais endereços de entrega cadastrados).
   - Cassandra (em outro projeto separado, lembrando que o Cassandra não suporta relacionamentos, então a lógica associada a isso deverá ser implementada pela aplicação).
-  - Elaboração de Dockerfile ou Docker Compose referente a dois bancos de dados utilizados na disciplina, envolvendo o processo de clonagem de um repo até a disponibilização do ambiente (nesse caso basta construir um projeto básico para provar o conceito).
+  - :white_check_mark: Elaboração de Dockerfile ou Docker Compose referente a dois bancos de dados utilizados na disciplina, envolvendo o processo de clonagem de um repo até a disponibilização do ambiente (nesse caso basta construir um projeto básico para provar o conceito).
 
 ## 💻 Pré-requisitos
 
