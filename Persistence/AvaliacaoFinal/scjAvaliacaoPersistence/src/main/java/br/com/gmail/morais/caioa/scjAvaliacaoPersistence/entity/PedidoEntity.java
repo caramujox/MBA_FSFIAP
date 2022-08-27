@@ -1,6 +1,9 @@
 package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity;
 
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.dto.CreateUpdatePedidoDTO;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +19,9 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "idPedido")
 public class PedidoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +30,9 @@ public class PedidoEntity {
     private Double valorPedido;
     private LocalDate dataPedido;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente")
+    @JsonBackReference
     private ClienteEntity cliente;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

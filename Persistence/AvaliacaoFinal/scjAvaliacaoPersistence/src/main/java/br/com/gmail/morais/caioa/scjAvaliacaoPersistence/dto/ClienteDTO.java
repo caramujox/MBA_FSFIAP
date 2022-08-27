@@ -11,19 +11,20 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClienteDTO {
-    private Long id;
+    private Long idCliente;
     private String nome;
     private LocalDate dataNascimento;
     private String cep;
-    private Integer numeroResidencia;
+    private Integer numeroResidencia, idade;
     private String complmento;
 
     public ClienteDTO(ClienteEntity entity) {
-        this.id = entity.getIdCliente();
+        this.idCliente = entity.getIdCliente();
         this.cep = entity.getCep();
         this.complmento = entity.getComplemento();
         this.numeroResidencia = entity.getNumeroResidencia();
         this.dataNascimento = entity.getDataNascimento();
+        this.idade = entity.getIdade();
         this.nome = entity.getNome();
     }
 }

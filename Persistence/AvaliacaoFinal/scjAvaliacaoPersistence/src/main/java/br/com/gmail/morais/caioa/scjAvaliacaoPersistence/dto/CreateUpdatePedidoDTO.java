@@ -14,8 +14,7 @@ import java.util.List;
 @Builder
 public class CreateUpdatePedidoDTO {
     private String nome;
-    private Double valorPedido;
     private LocalDate dataPedido;
     private Long idCliente;
-    private List<ProdutoDTO> produtos;
+    private List<ProdutoPedidoDTO> produtos;
 }

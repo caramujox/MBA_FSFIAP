@@ -1,5 +1,10 @@
 package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +16,11 @@ import java.util.List;
 @Table(name= "TB_CLIENTES")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "idCliente")
 public class ClienteEntity {
 
     @Id
@@ -25,6 +35,7 @@ public class ClienteEntity {
     private Integer numeroResidencia;
     private String complemento;
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<PedidoEntity> pedidos;
 }

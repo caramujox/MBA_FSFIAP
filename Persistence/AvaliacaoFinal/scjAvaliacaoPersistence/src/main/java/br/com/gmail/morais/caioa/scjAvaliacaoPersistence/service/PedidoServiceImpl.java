@@ -1,14 +1,13 @@
 package br.com.gmail.morais.caioa.scjAvaliacaoPersistence.service;
 
-import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.dto.CreateUpdatePedidoDTO;
-import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.dto.PedidoDTO;
+import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.dto.*;
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity.ClienteEntity;
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity.PedidoEntity;
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.entity.ProdutoEntity;
-import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.repository.ClienteRepository;
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.repository.PedidoRepository;
-import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.repository.ProdutoRepository;
+import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.service.interfaces.ClienteService;
 import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.service.interfaces.PedidoService;
+import br.com.gmail.morais.caioa.scjAvaliacaoPersistence.service.interfaces.ProdutoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,20 +23,21 @@ import java.util.List;
 public class PedidoServiceImpl implements PedidoService {
 
     private PedidoRepository pedidoRepository;
-    private ClienteRepository clienteRepository;
-    private ProdutoRepository produtoRepository;
+    private ClienteService clienteService;
+    private ProdutoService produtoService;
     private ObjectMapper objectMapper;
     @Override
     public PedidoDTO create(CreateUpdatePedidoDTO createUpdatePedidoDTO) {
-        ClienteEntity cliente = clienteRepository.findById(createUpdatePedidoDTO.getIdCliente())
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        ClienteEntity cliente = mapClienteDTO(clienteService.findById(createUpdatePedidoDTO.getIdCliente()));
+//        List<ProdutoEntity> produtos = createUpdatePedidoDTO.getProdutos().stream().map(
+//                this::mapProdutoPedidoDTO
+//        ).collect(Collectors.toList());
         List<ProdutoEntity> produtos = new ArrayList<>();
-
         PedidoEntity entity = PedidoEntity.builder()
                 .dataPedido(LocalDate.now())
                 .cliente(cliente)
                 .produtos(produtos)
-                .valorPedido(createUpdatePedidoDTO.getValorPedido())
+                .valorPedido(calculaValorPedido(createUpdatePedidoDTO.getProdutos()))
                 .build();
         PedidoEntity savedEntity = pedidoRepository.save(entity);
         return new PedidoDTO(savedEntity);
@@ -67,7 +66,7 @@ public class PedidoServiceImpl implements PedidoService {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND)
         );
         entity.setDataPedido(createUpdatePedidoDTO.getDataPedido());
-        entity.setValorPedido(createUpdatePedidoDTO.getValorPedido());
+//        entity.setValorPedido(createUpdatePedidoDTO.getValorPedido());
         return new PedidoDTO(entity);
     }
 
@@ -77,5 +76,36 @@ public class PedidoServiceImpl implements PedidoService {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND)
         );
         pedidoRepository.delete(entity);
+    }
+
+
+    //Metodos Privados
+
+    private ClienteEntity mapClienteDTO(ClienteDTO dto){
+        return ClienteEntity.builder()
+                .idCliente(dto.getIdCliente())
+                .cep(dto.getCep())
+                .complemento(dto.getComplmento())
+                .numeroResidencia(dto.getNumeroResidencia())
+                .dataNascimento(dto.getDataNascimento())
+                .idade(dto.getIdade())
+                .nome(dto.getNome())
+                .build();
+    }
+    private ProdutoEntity mapProdutoPedidoDTO(ProdutoPedidoDTO dto){
+        ProdutoDTO produto = produtoService.findById(dto.getIdProduto());
+        return ProdutoEntity.builder()
+                .idProduto(dto.getIdProduto())
+                .quantidade(dto.getQuantidade())
+                .nome(produto.getNome())
+                .valor(produto.getValor())
+                .build();
+    }
+
+    private Double calculaValorPedido(List<ProdutoPedidoDTO> dto){
+        Double valor = dto.stream().mapToDouble(produto -> {
+            return produtoService.findById(produto.getIdProduto()).getValor();
+        }).sum();
+        return valor;
     }
 }
