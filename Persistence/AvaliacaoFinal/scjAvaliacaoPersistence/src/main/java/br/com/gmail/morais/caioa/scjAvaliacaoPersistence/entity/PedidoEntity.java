@@ -35,7 +35,7 @@ public class PedidoEntity {
     @JsonBackReference
     private ClienteEntity cliente;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(
             name = "produto_pedido",
             joinColumns = {

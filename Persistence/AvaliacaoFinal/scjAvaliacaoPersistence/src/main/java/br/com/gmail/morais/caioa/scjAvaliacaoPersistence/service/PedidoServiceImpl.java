@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -29,10 +30,10 @@ public class PedidoServiceImpl implements PedidoService {
     @Override
     public PedidoDTO create(CreateUpdatePedidoDTO createUpdatePedidoDTO) {
         ClienteEntity cliente = mapClienteDTO(clienteService.findById(createUpdatePedidoDTO.getIdCliente()));
-//        List<ProdutoEntity> produtos = createUpdatePedidoDTO.getProdutos().stream().map(
-//                this::mapProdutoPedidoDTO
-//        ).collect(Collectors.toList());
-        List<ProdutoEntity> produtos = new ArrayList<>();
+        List<ProdutoEntity> produtos = createUpdatePedidoDTO.getProdutos().stream().map(
+                this::mapProdutoPedidoDTO
+        ).collect(Collectors.toList());
+//        List<ProdutoEntity> produtos = new ArrayList<>();
         PedidoEntity entity = PedidoEntity.builder()
                 .dataPedido(LocalDate.now())
                 .cliente(cliente)
@@ -104,7 +105,7 @@ public class PedidoServiceImpl implements PedidoService {
 
     private Double calculaValorPedido(List<ProdutoPedidoDTO> dto){
         Double valor = dto.stream().mapToDouble(produto -> {
-            return produtoService.findById(produto.getIdProduto()).getValor();
+            return produtoService.findById(produto.getIdProduto()).getValor() * produto.getQuantidade();
         }).sum();
         return valor;
     }
