@@ -3,7 +3,7 @@
 >Repositório para projetos de classe da disciplina WebServices do MBA Full Stack Development - FIAP 2022 - 43SCJ
 
 ### 💻 Disciplinas
-O projeto contem as seguintes regras de avaliação
+A disciplina está divida em 4 módulos 
 
 - [x] Módulo 1: Web Service Restfull
 - [x] Módulo 2: Web Service SOAP
@@ -20,4 +20,4 @@ Todo feedback é bem-vindo e o processo de melhoria é continuo!
 <img src="https://img.shields.io/twitter/follow/camirujo?style=social" /></a>
 </p>
 
-[⬆ Voltar ao topo](#webservices-e-computação-distribuida)<br>
+[⬆ Voltar ao topo](#:soap:-webservices-e-computação-distribuida)<br>

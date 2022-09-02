@@ -1,19 +1,15 @@
 # :leaves: Spring
 
->Repositório para projetos de classe das disciplinas do MBA Full Stack Development - FIAP 2022 - 43SCJ
+>Repositório para projetos de classe da disciplina Spring do MBA Full Stack Development - FIAP 2022 - 43SCJ
 
 ### 💻 Disciplinas
-O projeto contem as seguintes regras de avaliação
+A disciplina está divida em 4 módulos 
 
-- [x] Design Thinking
-- [x] UX Design
-- [x] StartUp One
-- [x] Java Platform
-- [x] Modern Web
-- [x] Persistence
-- [ ] Spring
-- [ ] Big Data Development
-## 🚀 ☕
+- [x] Módulo 1: Spring Boot e Spring Data
+- [x] Módulo 2: Spring Data e Spring Security
+- [x] Modulo 3: Spring Batch
+- [x] Módulo 4: Reactive Spring
+- [ ] Módulo Extra: Spring Native
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
