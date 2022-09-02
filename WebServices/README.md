@@ -8,7 +8,7 @@ O projeto contem as seguintes regras de avaliação
 - [x] Módulo 1: Web Service Restfull
 - [x] Módulo 2: Web Service SOAP
 - [x] Modulo 3: Segurança em Web Services
-- [x] Módulo 4:  Web Service para Microserviços e API Gateway
+- [x] Módulo 4: Web Service para Microserviços e API Gateway
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
