@@ -3,7 +3,8 @@
 >Repositório para projetos de classe das disciplinas do MBA Full Stack Development - FIAP 2022 - 43SCJ
 
 ### 💻 Disciplinas
-O projeto contem as seguintes regras de avaliação
+As disciplinas abaixo são as que foram (ou serao) abordadas durante toda a extensão do curso.
+>Se a pagina está marcada com o check, é porque já foram todas as aulas e projetos da matéria.
 
 - [x] :black_joker: Design Thinking
 - [x] :mahjong: UX Design
