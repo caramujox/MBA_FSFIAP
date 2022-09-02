@@ -5,14 +5,18 @@
 ### 💻 Disciplinas
 O projeto contem as seguintes regras de avaliação
 
-- [x] Design Thinking
-- [x] UX Design
-- [x] StartUp One
-- [x] Java Platform
-- [x] Modern Web
-- [x] Persistence
-- [ ] Spring
-- [ ] Big Data Development
+- [x] :black_joker: Design Thinking
+- [x] :mahjong: UX Design
+- [x] :flower_playing_cards: StartUp One
+- [x] :coffee: Java Platform
+- [x] :framed_picture: Modern Web
+- [x] :busts_in_silhouette: Persistence
+- [x] :incoming_envelope: Integration & Develop Tools
+- [x] :leaves: Spring
+- [x] :card_index_dividers: Big Data Development
+- [ ] :soap: Web Services 
+- [ ] :iphone: Mobile
+- [ ] :man_office_worker: Business and Agility Management
 ## 🚀 ☕
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>

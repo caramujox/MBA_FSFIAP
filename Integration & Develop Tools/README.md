@@ -1,4 +1,4 @@
-# :incoming_envelope:🚀 Integration and Development Tools
+# :incoming_envelope: Integration and Development Tools
 >Diretório reservado para o Modulo de Modern WEB 
 
 ### 💻 Disciplinas
