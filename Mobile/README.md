@@ -5,9 +5,9 @@
 ### 💻 Disciplinas
 O projeto contem as seguintes regras de avaliação
 
-- [x] Módulo 1: 
-- [x] Módulo 2: 
-- [x] Modulo 3:
+- [x] Módulo 1: Flutter - Instalação, Conceitos, Estruturas e Layout
+- [x] Módulo 2: Widgets e Gestures
+- [x] Modulo 3: Navegação Statefull 
 - [x] Módulo 4: 
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
