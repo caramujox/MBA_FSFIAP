@@ -18,7 +18,6 @@ As disciplinas abaixo são as que foram (ou serao) abordadas durante toda a exte
 - [ ] :soap: Web Services 
 - [ ] :iphone: Mobile
 - [ ] :man_office_worker: Business and Agility Management
-## 🚀 ☕
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
