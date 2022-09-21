@@ -15,7 +15,7 @@ As disciplinas abaixo são as que foram (ou serao) abordadas durante toda a exte
 - [x] :incoming_envelope: Integration & Develop Tools
 - [x] :leaves: Spring
 - [x] :card_index_dividers: Big Data Development
-- [ ] :soap: Web Services 
+- [x] :soap: Web Services 
 - [ ] :iphone: Mobile
 - [ ] :man_office_worker: Business and Agility Management
 
