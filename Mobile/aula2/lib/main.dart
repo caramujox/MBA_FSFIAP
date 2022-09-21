@@ -1,3 +1,4 @@
+import 'package:aula2/rounded_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -87,6 +88,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+                RoundedBtn(text: "Hear fell thik", icon: Icon(Icons.map), onTap: () {})
               ],
             ),
           ),
