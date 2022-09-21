@@ -1,3 +1,5 @@
+import 'package:aula3/screens/menu_screen.dart';
+import 'package:aula3/screens/personal_card_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,24 +18,25 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        MenuScreen.id: (context)=> MenuScreen(),
+        PersonalCardScreen.id: (context) => PersonalCardScreen()
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: MenuScreen(),
+      ),
     );
   }
 }
