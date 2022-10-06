@@ -3,7 +3,7 @@
 >Repositório para projetos de classe das disciplinas do MBA Full Stack Development - FIAP 2022 - 43SCJ
 
 ### 💻 Disciplinas
-As disciplinas abaixo são as que foram (ou serao) abordadas durante toda a extensão do curso.
+As disciplinas abaixo são as que foram (ou serão) abordadas durante toda a extensão do curso.
 >Se a pagina está marcada com o check, é porque já foram todas as aulas e projetos da matéria.
 
 - [x] :black_joker: Design Thinking
@@ -17,7 +17,10 @@ As disciplinas abaixo são as que foram (ou serao) abordadas durante toda a exte
 - [x] :card_index_dividers: Big Data Development
 - [x] :soap: Web Services 
 - [ ] :iphone: Mobile
-- [ ] :man_office_worker: Business and Agility Management
+- [x] :man_office_worker: Business and Agility Management
+- [ ] :gear: Microservices Development
+- [ ] :mechanical_arm: IoT Development
+- [ ] :cloud: Cloud Development
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
