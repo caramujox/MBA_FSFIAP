@@ -8,10 +8,6 @@ void main() {
   runApp(const MyApp());
 }
 
-const _diceOne = 1;
-const _diceTwo = 1;
-const _maxValue = 6;
-const _minValue = 1;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -38,29 +34,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.red,
-      body: SafeArea(
-        child: DiceScreen(diceScreenArgs: DiceScreenArgs(diceOne: _diceOne, diceTwo: _diceTwo)),
-      ),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        print(_rdmNum(_maxValue, _minValue));
-      },
-      backgroundColor: Colors.lightBlue,
-      // child: Text('+', style: GoogleFonts.lato(
-      //                 fontSize: 26,
-      //                 color: Colors.white,
-      //                 fontWeight: FontWeight.bold),),
-      // ),
-      child: Icon(Icons.repeat),
-    ));
+    return DiceScreen();
+    // return Scaffold(
+    //     backgroundColor: Colors.red,
+    //     body: SafeArea(
+    //       child: DiceScreen(
+    //           diceScreenArgs:
+    //               DiceScreenArgs(diceOne: _diceOne, diceTwo: _diceTwo)),
+    //     ),
   }
 
- int _rdmNum (int maxValue, int minValue) {
 
-    return Random().nextInt((maxValue +1) - minValue);
-  }
 }
