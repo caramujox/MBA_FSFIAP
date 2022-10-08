@@ -6,9 +6,14 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -19,10 +24,11 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
       routes: {
-        MenuScreen.id: (context)=> MenuScreen(),
+        MenuScreen.id: (context) => MenuScreen(),
         PersonalCardScreen.id: (context) => PersonalCardScreen(
-          arguments: ModalRoute.of(context)?.settings.arguments as PersonalCardScreenArgs,
-        )
+              arguments: ModalRoute.of(context)?.settings.arguments
+                  as PersonalCardScreenArgs,
+            )
       },
     );
   }
@@ -36,9 +42,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: MenuScreen(),
-      ),
+      body: MenuScreen(),
     );
   }
 }
