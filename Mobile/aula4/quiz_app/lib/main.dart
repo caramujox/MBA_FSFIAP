@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       home: const QuizScreen(title: 'Flutter Demo Home Page'),
       routes: {
         QuizScreen.id: (context) => const QuizScreen(title: 'Quiz Screen'),
-        EndGameScreen.id:(context) => EndGameScreen(args: ModalRoute.of(context)?.settings.arguments as EndGameArgs,)
+        EndGameScreen.id: (context) => EndGameScreen(args: ModalRoute.of(context)?.settings.arguments as EndGameArgs,)
       },
     );
   }
