@@ -6,9 +6,10 @@
 O projeto contem as seguintes regras de avaliação
 
 - [x] Módulo 1: Flutter - Instalação, Conceitos, Estruturas e Layout
-- [x] Módulo 2: Widgets e Gestures
-- [x] Modulo 3: Navegação Statefull 
-- [x] Módulo 4: 
+- [x] Módulo 2: Widgets 
+- [x] Modulo 3: Gestures
+- [x] Módulo 4: Navegação Statefull
+- [x] Módulo 5: Firebase, Async e Requisições
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
