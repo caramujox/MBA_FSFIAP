@@ -16,7 +16,7 @@ As disciplinas abaixo são as que foram (ou serão) abordadas durante toda a ext
 - [x] :leaves: Spring
 - [x] :card_index_dividers: Big Data Development
 - [x] :soap: Web Services 
-- [ ] :iphone: Mobile
+- [x] :iphone: Mobile
 - [x] :man_office_worker: Business and Agility Management
 - [ ] :gear: Microservices Development
 - [ ] :mechanical_arm: IoT Development
