@@ -18,9 +18,10 @@ As disciplinas abaixo são as que foram (ou serão) abordadas durante toda a ext
 - [x] :soap: Web Services 
 - [x] :iphone: Mobile
 - [x] :man_office_worker: Business and Agility Management
-- [ ] :gear: Microservices Development
+- [x] :gear: Microservices Development
 - [ ] :mechanical_arm: IoT Development
 - [ ] :cloud: Cloud Development
+- [ ] :whale: Containers and Virtualization
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
