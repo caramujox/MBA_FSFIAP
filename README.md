@@ -22,6 +22,7 @@ As disciplinas abaixo são as que foram (ou serão) abordadas durante toda a ext
 - [ ] :mechanical_arm: IoT Development
 - [ ] :cloud: Cloud Development
 - [ ] :whale: Containers and Virtualization
+- [ ] :superhero: DEVOPS
 
 ## 😄 Fique a vontade para avaliar e contribuir!<br>
 
