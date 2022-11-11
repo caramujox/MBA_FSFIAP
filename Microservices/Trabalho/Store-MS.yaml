@@ -1,0 +1,473 @@
+openapi: 3.0.1
+info:
+  title: Store-MS - OpenAPI 3.0
+  description: |-
+   This is an API for a fake store to deliver the FIAP university microservices project
+  version: v1
+tags:
+  - name: Cart
+    description: Access to Cart orders
+
+  - name: Category
+    description: Data about Categories of the Products
+
+  - name: Products
+    description: Operations of Products
+
+paths:
+  /api/Cart:
+    get:
+      tags:
+        - Cart
+      summary: Get cart data
+      description: List cart data
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cart'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cart'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cart'
+    post:
+      tags:
+        - Cart
+      summary: Add to requested cart
+      description: Successful Boolean on Return
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Cart'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+  /api/Cart/{id}:
+    get:
+      tags:
+        - Cart
+      summary: Get specific cart data
+      description: Cart data list
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Cart'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    put:
+      tags:
+        - Cart
+      summary: Change specific cart
+      description: Successful Boolean on Return
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Cart
+      summary: Delete the requested cart
+      description: Successful boolean on cart deletion
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Category:
+    get:
+      tags:
+        - Category
+      summary: Get all categories
+      description: List of Categories
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+    post:
+      tags:
+        - Category
+      summary: Add Category
+      description: Creation Success Boolean on Return
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Category'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+  /api/Category/{id}:
+    get:
+      tags:
+        - Category
+      summary: Get the requested category
+      description: Requested Category Data
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Category'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+    put:
+      tags:
+        - Category
+      summary: Change requested category
+      description: Success Boolean of change in return
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Category
+      summary: Delete requested category
+      description: Successful boolean of delete on return
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Products:
+    get:
+      tags:
+        - Products
+      summary: Obter todos os produtos
+      description: Get all products
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      tags:
+        - Products
+      summary: Creating a New Product
+      description: Product creation success boolean on return
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Product'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /api/Products/{id}:
+    get:
+      tags:
+        - Products
+      summary: Get requested product data
+      description: Product Data
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Product'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    put:
+      tags:
+        - Products
+      summary: Change requested product
+      description: Boolean of the success of the product change requested in the return
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Products
+      summary: Deleting a New Product
+      description: Product delete success boolean on return
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Products/Category/{idCategory}:
+    get:
+      tags:
+        - Products
+      summary: Get all products in the requested category
+      description: List of Products of the requested Category
+      parameters:
+        - name: idCategory
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+components:
+  schemas:
+    Cart:
+      required:
+        - userId
+      type: object
+      properties:
+        cartId:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int32
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+          nullable: true
+        createDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+    Category:
+      required:
+        - name
+      type: object
+      properties:
+        categoryId:
+          type: integer
+          format: int32
+        name:
+          minLength: 1
+          type: string
+        createDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+    Product:
+      required:
+        - category
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        category:
+          type: integer
+          format: int32
+        price:
+          type: number
+          format: double
+        quantity:
+          type: integer
+          format: int32
+        createDate:
+          type: string
+          format: date-time
+      additionalProperties: false
