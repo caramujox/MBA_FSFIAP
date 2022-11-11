@@ -40,6 +40,39 @@
             "description": "Invalid input"
           }
         }
+      },
+      "get": {
+        "summary": "Gets a report of all current Orders placed until that moment",
+        "description": "Extract a report suited for Analysis and Marketign Strategy with all the information about Orders and products",
+        "operationId": "extractOrders",
+        "parameters": [
+          {
+            "name": "dueTo",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Request Accepted"
+          },
+          "405": {
+            "description": "Invalid Input"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/order/{orderId}": {
@@ -178,9 +211,6 @@
           "message": {
             "type": "string"
           }
-        },
-        "xml": {
-          "name": "##default"
         }
       }
     },
